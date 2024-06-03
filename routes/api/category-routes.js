@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
     include: [{model: Product}]
   })
   if (!singleCategory){
-    res.status(400).send('No such ID')
+    res.status(400).send('No such ID.')
     return
   }
   res.status(200).send(singleCategory)
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
       category_name: req.body.category_name
     }
   )
-  res.status(200).send(`Successfully created the '${req.body.category_name}' category`)
+  res.status(201).send(`Successfully created the '${req.body.category_name}' category.`)
 });
 
 router.put('/:id', async (req, res) => {
@@ -43,7 +43,7 @@ router.put('/:id', async (req, res) => {
     }
   )
 
-  res.status(200).send(`Successfully updated the '${oldCategory}' category to the '${req.body.category_name}' category using ID: ${req.params.id}` )
+  res.status(200).send(`Successfully updated the '${oldCategory}' category to the '${req.body.category_name}' category using ID: ${req.params.id}.` )
   
 });
 
@@ -58,11 +58,11 @@ const oldCategory = category.dataValues.category_name
   })
 
   if (del === 0){
-    res.status(400).send(`There is no category with the ID '${req.params.id}'`)
+    res.status(400).send(`There is no category with the ID '${req.params.id}'.`)
     return
   }
 
-  res.status(200).send(`${del} categories deleted (${oldCategory})`)
+  res.status(200).send(`${del} categories deleted (${oldCategory}).`)
 
 });
 

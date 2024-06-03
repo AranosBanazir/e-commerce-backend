@@ -19,7 +19,7 @@ router.get('/:id', async (req, res) => {
     include: [{model: Category}, {model: Tag}]
   })
   if (!singleProduct){
-    res.status(400).send('No such ID')
+    res.status(400).send('No such ID.')
     return
   }
   res.status(200).send(singleProduct)
@@ -113,11 +113,11 @@ const oldProduct = product.dataValues.product_name
   })
 
   if (del === 0){
-    res.status(400).send(`There is no product with the ID '${req.params.id}'`)
+    res.status(400).send(`There is no product with the ID '${req.params.id}'.`)
     return
   }
 
-  res.status(200).send(`${del} product deleted (${oldProduct})`)
+  res.status(200).send(`${del} product(s) deleted (${oldProduct}).`)
 
 });
 
